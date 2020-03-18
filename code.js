@@ -742,9 +742,8 @@
         arr[preferredDoc.childNodes.length].nodeType;
       } catch (e) {
         push = {
-          apply: arr.length
-            ? // Leverage slice if possible
-              function(target, els) {
+          apply: arr.length // Leverage slice if possible
+            ? function(target, els) {
                 push_native.apply(target, slice.call(els));
               }
             : // Support: IE<9
@@ -1293,7 +1292,8 @@
               var elem,
                 tmp = [],
                 i = 0,
-                // By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
+                // By happy coincidence, a (broken) gEBTN appears on
+                // DocumentFragment nodes too
                 results = context.getElementsByTagName(tag);
 
               // Filter out possible comments
@@ -1601,9 +1601,8 @@
                 i++;
               }
 
-              return i
-                ? // Do a sibling check if the nodes have a common ancestor
-                  siblingCheck(ap[i], bp[i])
+              return i // Do a sibling check if the nodes have a common ancestor
+                ? siblingCheck(ap[i], bp[i])
                 : // Otherwise nodes in our document sort first
                 ap[i] === preferredDoc
                 ? -1
@@ -2018,7 +2017,8 @@
                         }
                       }
                     } else {
-                      // Use previously-cached element index if available
+                      // Use previously-cached element index if
+                      // available
                       if (useCache) {
                         // ...in a gzip-friendly way
                         node = elem;
@@ -2040,8 +2040,8 @@
                       // or :nth-last-child(...) or
                       // :nth(-last)?-of-type(...)
                       if (diff === false) {
-                        // Use the same loop as above to seek `elem` from
-                        // the start
+                        // Use the same loop as above to seek `elem`
+                        // from the start
                         while (
                           (node =
                             (++nodeIndex && node && node[dir]) ||
@@ -2437,9 +2437,8 @@
         return parseOnly
           ? soFar.length
           : soFar
-          ? Sizzle.error(selector)
-          : // Cache the tokens
-            tokenCache(selector, groups).slice(0);
+          ? Sizzle.error(selector) // Cache the tokens
+          : tokenCache(selector, groups).slice(0);
       };
 
       function toSelector(tokens) {
@@ -2605,9 +2604,8 @@
               preFilter && (seed || !selector)
                 ? condense(elems, preMap, preFilter, context, xml)
                 : elems,
-            matcherOut = matcher
-              ? // If we have a postFinder, or filtered seed, or
-                // non-seed postFilter or preexisting results,
+            matcherOut = matcher // If we have a postFinder, or filtered seed, or
+              ? // non-seed postFilter or preexisting results,
                 postFinder || (seed ? preFilter : preexisting || postFilter)
                 ? // ...intermediate processing is necessary
                   []
@@ -4486,7 +4484,7 @@
   //	4. _Never_ expose "private" data to user code (TODO: Drop _data,
   //_removeData)
   //	5. Avoid exposing implementation details on user objects (eg. expando
-  //properties)
+  // properties)
   //	6. Provide a clear path for implementation upgrade to WeakMap in 2014
 
   var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
@@ -6800,9 +6798,8 @@
       }
     }
 
-    return ret !== undefined
-      ? // Support: IE <=9 - 11 only
-        // IE returns zIndex value as an integer.
+    return ret !== undefined // Support: IE <=9 - 11 only
+      ? // IE returns zIndex value as an integer.
         ret + ""
       : ret;
   }
@@ -6862,20 +6859,15 @@
     // https://developer.mozilla.org/en-US/docs/CSS/display
     rdisplayswap = /^(none|table(?!-c[ea]).+)/,
     rcustomProp = /^--/,
-    cssShow = {
-      position: "absolute",
-      visibility: "hidden",
-      display: "block"
-    },
+    cssShow = { position: "absolute", visibility: "hidden", display: "block" },
     cssNormalTransform = { letterSpacing: "0", fontWeight: "400" };
 
   function setPositiveNumber(elem, value, subtract) {
     // Any relative (+/-) values have already been
     // normalized at this point
     var matches = rcssNum.exec(value);
-    return matches
-      ? // Guard against undefined "subtract", e.g., when used as in
-        // cssHooks
+    return matches // Guard against undefined "subtract", e.g., when used as in
+      ? // cssHooks
         Math.max(0, matches[2] - (subtract || 0)) + (matches[3] || "px")
       : value;
   }
@@ -9540,16 +9532,16 @@
       contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 
       /*
-    timeout: 0,
-    data: null,
-    dataType: null,
-    username: null,
-    password: null,
-    cache: null,
-    throws: false,
-    traditional: false,
-    headers: {},
-    */
+  timeout: 0,
+  data: null,
+  dataType: null,
+  username: null,
+  password: null,
+  cache: null,
+  throws: false,
+  traditional: false,
+  headers: {},
+  */
 
       accepts: {
         "*": allTypes,
@@ -9595,9 +9587,8 @@
     // with both ajaxSettings and settings fields.
     // If target is omitted, writes into ajaxSettings.
     ajaxSetup: function(target, settings) {
-      return settings
-        ? // Building a settings object
-          ajaxExtend(ajaxExtend(target, jQuery.ajaxSettings), settings)
+      return settings // Building a settings object
+        ? ajaxExtend(ajaxExtend(target, jQuery.ajaxSettings), settings)
         : // Extending ajaxSettings
           ajaxExtend(jQuery.ajaxSettings, target);
     },
@@ -10606,10 +10597,9 @@
           response = arguments;
 
           self.html(
-            selector
-              ? // If a selector was specified, locate the right
-                // elements in a dummy div Exclude scripts to avoid
-                // IE 'Permission Denied' errors
+            selector // If a selector was specified, locate the right
+              ? // elements in a dummy div Exclude scripts to
+                // avoid IE 'Permission Denied' errors
                 jQuery("<div>")
                   .append(jQuery.parseHTML(responseText))
                   .find(selector)
